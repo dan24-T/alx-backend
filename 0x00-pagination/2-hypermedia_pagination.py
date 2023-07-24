@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Adds `get_hyper` method to `Server` class
+contains the simple pagination class
 """
 import csv
 from typing import Dict, List, Tuple, Union
@@ -27,35 +27,24 @@ class Server:
 
     @staticmethod
     def index_range(page: int, page_size: int) -> Tuple[int, int]:
-        """Calculate start and end index range for a `page`, with `page_size`
+        """Calculate start and end
         """
-        nextPageStartIndex = page * page_size
-        return nextPageStartIndex - page_size, nextPageStartIndex
+        nextPagestaInd = page * page_size
+        return nextPagestaInd - page_size, nextPagestaInd
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-        Get items for the given page number
-        Args:
-            page (int): page number
-            page_size (int): number of items per page
-        Returns:
-            (List[List]): a list of list(row) if inputs are within range
-            ([]) : an empty list if page and page_size are out of range
+        Get items
         """
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
-        startIndex, endIndex = self.index_range(page, page_size)
-        return self.dataset()[startIndex:endIndex]
+        staInd, endInd = self.index_range(page, page_size)
+        return self.dataset()[staInd:endInd]
 
     def get_hyper(self, page: int,
                   page_size: int) -> Dict[str, Union[int, List[List], None]]:
         """
-        Args:
-            page (int): page number
-            page_size (int): number of items per page
-        Returns:
-            A dictionary of the following:
-                * page_size, page, data, next_page, prev_page, total_pages
+        Args
         """
         data = self.get_page(page, page_size)
         totalRows = len(self.dataset())
