@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""LFU Cache Replacement Implementation Class
+"""LFU
 """
 from threading import RLock
 
@@ -8,14 +8,10 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class LFUCache(BaseCaching):
     """
-    An implementaion of LFUCache(Least frequently used)
-
-    Attributes:
-        __stats (list): A dictionary of cache keys for access count
-        __rlock (RLock): Lock accessed resources to prevent race condition
+    implement
     """
     def __init__(self):
-        """ Instantiation method, sets instance attributes
+        """ Instantiata
         """
         super().__init__()
         self.__stats = {}
@@ -41,7 +37,7 @@ class LFUCache(BaseCaching):
         return value
 
     def _balance(self, keyIn):
-        """ Removes the earliest item from the cache at MAX size
+        """ Removes the earliest
         """
         keyOut = None
         with self.__rlock:
