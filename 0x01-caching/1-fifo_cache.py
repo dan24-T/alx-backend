@@ -8,10 +8,10 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class FIFOCache(BaseCaching):
     """
-    An implementation of FIFO(First In Fisrt Out) Cache
+    An implementation of FIFO
 
     Attributes:
-        __keys (list): Stores cache keys in order of entry using `.append`
+        __keys (list): Stores cache
         __rlock (RLock): Lock accessed resources to prevent race condition
     """
     def __init__(self):
@@ -38,7 +38,7 @@ class FIFOCache(BaseCaching):
             return self.cache_data.get(key, None)
 
     def _balance(self, keyIn):
-        """ Removes the oldest item from the cache at MAX size
+        """ Removes the oldest
         """
         keyOut = None
         with self.__rlock:
