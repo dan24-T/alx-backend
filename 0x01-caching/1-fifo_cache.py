@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""FIFO Cache Replacement Implementation Class
+"""FIFO
 """
 from threading import RLock
 
@@ -8,14 +8,10 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class FIFOCache(BaseCaching):
     """
-    An implementation of FIFO(First In Fisrt Out) Cache
-
-    Attributes:
-        __keys (list): Stores cache keys in order of entry using `.append`
-        __rlock (RLock): Lock accessed resources to prevent race condition
+    An implementation 
     """
     def __init__(self):
-        """ Instantiation method, sets instance attributes
+        """ Instantiate
         """
         super().__init__()
         self.__keys = []
@@ -32,13 +28,13 @@ class FIFOCache(BaseCaching):
                 print('DISCARD: {}'.format(keyOut))
 
     def get(self, key):
-        """ Get an item by key
+        """ Get
         """
         with self.__rlock:
             return self.cache_data.get(key, None)
 
     def _balance(self, keyIn):
-        """ Removes the oldest item from the cache at MAX size
+        """ Removes the oldest
         """
         keyOut = None
         with self.__rlock:
