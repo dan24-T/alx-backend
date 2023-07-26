@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""LRU Cache Replacement Implementation Class
+"""LRU
 """
 from threading import RLock
 
@@ -8,14 +8,10 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class LRUCache(BaseCaching):
     """
-    An implementation of LRU(Last Recently Used) Cache
-
-    Attributes:
-        __keys (list): Stores cache keys from least to most accessed
-        __rlock (RLock): Lock accessed resources to prevent race condition
+    implementation
     """
     def __init__(self):
-        """ Instantiation method, sets instance attributes
+        """ Instantiate
         """
         super().__init__()
         self.__keys = []
@@ -41,7 +37,7 @@ class LRUCache(BaseCaching):
         return value
 
     def _balance(self, keyIn):
-        """ Removes the earliest item from the cache at MAX size
+        """ Remove the early 
         """
         keyOut = None
         with self.__rlock:
