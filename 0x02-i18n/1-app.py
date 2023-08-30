@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Basic flask application
+A Basic flask appl
 """
 from flask import Flask
 from flask import render_template
@@ -9,7 +9,7 @@ from flask_babel import Babel
 
 class Config(object):
     """
-    Application configuration class
+    configuration class
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -27,7 +27,7 @@ babel = Babel(app)
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """
-    Renders a basic html template
+    Renders template
     """
     return render_template('1-index.html')
 

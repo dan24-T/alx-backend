@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Basic flask application
+A Basic flask app
 """
 from typing import (
     Dict, Union
@@ -14,7 +14,7 @@ from flask_babel import Babel
 
 class Config(object):
     """
-    Application configuration class
+    configuration class
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -51,7 +51,7 @@ def get_user(id) -> Union[Dict[str, Union[str, None]], None]:
 @babel.localeselector
 def get_locale() -> str:
     """
-    Gets locale from request object
+    Gets locale
     """
     options = [
         request.args.get('locale', '').strip(),
@@ -67,7 +67,7 @@ def get_locale() -> str:
 @app.before_request
 def before_request() -> None:
     """
-    Adds valid user to the global session object `g`
+    Adds valid user
     """
     setattr(g, 'user', get_user(request.args.get('login_as', 0)))
 
@@ -75,7 +75,7 @@ def before_request() -> None:
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """
-    Renders a basic html template
+    Renders
     """
     return render_template('6-index.html')
 

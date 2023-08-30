@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """
-    Renders a basic html template
+    Renders template
     """
     return render_template('0-index.html')
 

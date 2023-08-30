@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Basic flask application
+A Basic flask app
 """
 import pytz
 from typing import (
@@ -15,7 +15,7 @@ from flask_babel import Babel
 
 class Config(object):
     """
-    Application configuration class
+    configuration class
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -68,7 +68,7 @@ def get_locale() -> str:
 @babel.timezoneselector
 def get_timezone() -> str:
     """
-    Gets timezone from request object
+    Gets timezone
     """
     tz = request.args.get('timezone', '').strip()
     if not tz and g.user:
@@ -82,7 +82,7 @@ def get_timezone() -> str:
 @app.before_request
 def before_request() -> None:
     """
-    Adds valid user to the global session object `g`
+    Adds valid user
     """
     setattr(g, 'user', get_user(request.args.get('login_as', 0)))
 
@@ -90,7 +90,7 @@ def before_request() -> None:
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """
-    Renders a basic html template
+    Render template
     """
     return render_template('7-index.html')
 
